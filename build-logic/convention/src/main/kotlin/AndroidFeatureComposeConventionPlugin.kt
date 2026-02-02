@@ -27,15 +27,11 @@ class AndroidFeatureComposeConventionPlugin : Plugin<Project> {
                 add("implementation", project(":core:designsystem"))
                 add("implementation", project(":core:ui"))
 
-
-
                 add("implementation", libs.findLibrary("androidx.compose.hilt.navigation").get())
                 add("implementation", libs.findLibrary("androidx.lifecycle.runtimeCompose").get())
                 add("implementation", libs.findLibrary("androidx.lifecycle.viewModelCompose").get())
                 add("implementation", libs.findLibrary("log.timber").get())
-                add("implementation", libs.findLibrary("kamrul3288.dateced").get())
                 add("implementation", libs.findLibrary("kotlinx.coroutines.android").get())
-
 
                 add("testImplementation", libs.findLibrary("test-junit").get())
                 add("androidTestImplementation", libs.findLibrary("test.extjunit").get())

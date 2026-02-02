@@ -51,8 +51,6 @@ dependencies {
     implementation(projects.core.ui)
     implementation(projects.core.designsystem)
 
-    implementation(projects.features.repolist)
-    implementation(projects.features.profile)
     implementation(projects.features.agents)
     implementation(projects.features.maps)
     implementation(projects.features.weapons)

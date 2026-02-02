@@ -138,10 +138,6 @@ animation-lottie = {group = "com.airbnb.android", name = "lottie", version.ref="
 dimension-sdp = {group = "com.intuit.sdp", name = "sdp-android", version.ref="sdp"}
 dimension-ssp = {group = "com.intuit.ssp", name = "ssp-android", version.ref="sdp"}
 
-kamrul3288-viewstate = {group = "com.github.kamrul3288", name = "viewstatelayout", version.ref="viewstate"}
-kamrul3288-customview = {group = "com.github.kamrul3288", name = "customview-android", version.ref="customview"}
-kamrul3288-dateced = {group = "com.github.kamrul3288", name = "dateced", version.ref="dateced"}
-
 appupdate-core = {group = "com.google.android.play", name = "app-update", version.ref="appupdate"}
 appupdate-ktx = {group = "com.google.android.play", name = "app-update-ktx", version.ref="appupdate"}
 
