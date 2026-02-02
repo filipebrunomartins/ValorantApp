@@ -7,9 +7,9 @@ import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
+import com.valorant.common.utils.NavRoute.homeScreenRoute
 import com.valorant.navigation.agentsScreen
 import com.valorant.navigation.homeScreen
-import com.valorant.navigation.homeScreenRoute
 import com.valorant.navigation.mapsScreen
 import com.valorant.navigation.navigateToAgentsScreen
 import com.valorant.navigation.navigateToMapsScreen

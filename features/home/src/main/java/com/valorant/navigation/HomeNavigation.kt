@@ -3,9 +3,8 @@ package com.valorant.navigation
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import com.valorant.common.utils.NavRoute.homeScreenRoute
 import com.valorant.home.HomeScreenRoute
-
-const val homeScreenRoute = "homeScreenRoute"
 
 fun NavController.navigateToHome() {
     navigate(homeScreenRoute)
