@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.valorant.app.android.application)
     alias(libs.plugins.valorant.app.android.hilt)
     alias(libs.plugins.valorant.app.android.application.compose)
+    alias(libs.plugins.valorant.app.android.jacoco)
 }
 
 android {

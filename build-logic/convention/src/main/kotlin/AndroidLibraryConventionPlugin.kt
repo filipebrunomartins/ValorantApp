@@ -20,7 +20,8 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
 
             extensions.configure<LibraryExtension> {
                 configureKotlinAndroid(this)
-                defaultConfig.targetSdk = 34
+                defaultConfig.minSdk = 21
+                defaultConfig.targetSdk = 35
                 //configureFlavors(this)
                 //configureGradleManagedDevices(this)
             }
