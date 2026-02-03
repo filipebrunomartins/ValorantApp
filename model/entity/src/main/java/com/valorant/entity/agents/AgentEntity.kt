@@ -1,11 +1,13 @@
 package com.valorant.entity.agents
 
+import java.util.Date
+
 data class AgentEntity(
     val uuid: String,
     val displayName: String,
     val description: String,
     val developerName: String,
-    val releaseDate: String,
+    val releaseDate: Date?,
     val characterTags: List<String>?,
     val displayIcon: String?,
     val displayIconSmall: String?,

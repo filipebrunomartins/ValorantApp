@@ -1,6 +1,7 @@
 package com.valorant.data.mapper.agents
 
 import com.valorant.apiresponse.agents.AgentApiResponse
+import com.valorant.data.mapper.utils.DateMapper
 import com.valorant.data.utils.Mapper
 import com.valorant.entity.agents.AgentEntity
 import javax.inject.Inject
@@ -8,7 +9,8 @@ import javax.inject.Inject
 class AgentMapper @Inject constructor(
     private val roleMapper: RoleMapper,
     private val recruitmentDataMapper: RecruitmentDataMapper,
-    private val abilityMapper: AbilityMapper
+    private val abilityMapper: AbilityMapper,
+    private val dateMapper: DateMapper
 ) : Mapper<AgentApiResponse, AgentEntity> {
 
     override fun mapFromApiResponse(type: AgentApiResponse): AgentEntity {
@@ -17,7 +19,7 @@ class AgentMapper @Inject constructor(
             displayName = type.displayName,
             description = type.description,
             developerName = type.developerName,
-            releaseDate = type.releaseDate,
+            releaseDate = dateMapper.mapFromApiResponse(type.releaseDate),
             characterTags = type.characterTags,
             displayIcon = type.displayIcon,
             displayIconSmall = type.displayIconSmall,

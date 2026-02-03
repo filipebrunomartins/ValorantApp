@@ -1,3 +1,4 @@
+import com.valorant.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.tasks.testing.Test
@@ -8,22 +9,20 @@ import org.gradle.kotlin.dsl.*
 class AndroidJacocoConventionPlugin : Plugin<Project> {
 
     override fun apply(target: Project) {
+
         with(target) {
-            pluginManager.apply("jacoco")
+            // Aplica o plugin oficial do JaCoCo
+            apply(plugin = "jacoco")
 
+            // Configuração do JaCoCo
             extensions.configure<JacocoPluginExtension> {
-                toolVersion = "0.8.11"
+                toolVersion = libs.findVersion("jacoco").get().toString()
             }
 
-            tasks.withType<Test>().configureEach {
-                extensions.configure<org.gradle.testing.jacoco.plugins.JacocoTaskExtension> {
-                    isIncludeNoLocationClasses = true
-                    excludes = listOf("jdk.internal.*")
-                }
-            }
-
-            // Relatório padrão
+            // Task de relatório de coverage para Unit Tests
             tasks.register<JacocoReport>("jacocoTestReport") {
+
+                // Garante que os testes rodem antes
                 dependsOn("testDebugUnitTest")
 
                 reports {
@@ -32,30 +31,21 @@ class AndroidJacocoConventionPlugin : Plugin<Project> {
                     csv.required.set(false)
                 }
 
-                val fileFilter = listOf(
-                    "**/R.class",
-                    "**/R$*.class",
-                    "**/BuildConfig.*",
-                    "**/Manifest*.*",
-                    "**/*Test*.*",
-                    "**/Hilt_*.*",
-                    "**/*_Factory.*"
+                // Classes compiladas (Kotlin)
+                classDirectories.setFrom(
+                    fileTree("$buildDir/tmp/kotlin-classes/debug") {
+                        exclude(
+                            "**/R.class",
+                            "**/R$*.class",
+                            "**/BuildConfig.*",
+                            "**/di/**",
+                            "**/*_Factory*",
+                            "**/*_Hilt*"
+                        )
+                    }
                 )
 
-                val kotlinClasses = fileTree(
-                    "$buildDir/tmp/kotlin-classes/debug"
-                ) {
-                    exclude(fileFilter)
-                }
-
-                val javaClasses = fileTree(
-                    "$buildDir/intermediates/javac/debug"
-                ) {
-                    exclude(fileFilter)
-                }
-
-                classDirectories.setFrom(files(kotlinClasses, javaClasses))
-
+                // Código fonte
                 sourceDirectories.setFrom(
                     files(
                         "src/main/java",
@@ -63,12 +53,10 @@ class AndroidJacocoConventionPlugin : Plugin<Project> {
                     )
                 )
 
+                // Arquivo gerado pelo JaCoCo após rodar os testes
                 executionData.setFrom(
                     fileTree(buildDir) {
-                        include(
-                            "jacoco/testDebugUnitTest.exec",
-                            "outputs/unit_test_code_coverage/debugUnitTest/testDebugUnitTest.exec"
-                        )
+                        include("jacoco/testDebugUnitTest.exec")
                     }
                 )
             }
