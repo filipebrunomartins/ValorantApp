@@ -20,7 +20,9 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
 
             extensions.configure<LibraryExtension> {
                 configureKotlinAndroid(this)
-                defaultConfig.targetSdk = 34
+                defaultConfig.minSdk = 21
+                defaultConfig.targetSdk = 35
+
                 //configureFlavors(this)
                 //configureGradleManagedDevices(this)
             }
@@ -38,6 +40,9 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
             dependencies {
                 add("androidTestImplementation", kotlin("test"))
                 add("testImplementation", kotlin("test"))
+
+                // MockK (unit tests)
+                add("testImplementation", libs.findLibrary("mockk").get())
             }
         }
     }

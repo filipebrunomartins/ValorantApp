@@ -2,6 +2,7 @@
 plugins {
     alias(libs.plugins.valorant.app.android.library)
     alias(libs.plugins.valorant.app.android.hilt)
+    alias(libs.plugins.valorant.app.android.jacoco)
 }
 android {
     namespace = "com.valorant.app.data"

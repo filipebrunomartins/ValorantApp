@@ -70,5 +70,10 @@ gradlePlugin{
             id = "valorant.app.jvm.library"
             implementationClass = "JvmLibraryConventionPlugin"
         }
+
+        register("androidJacoco") {
+            id = "valorant.app.android.jacoco"
+            implementationClass = "AndroidJacocoConventionPlugin"
+        }
     }
 }

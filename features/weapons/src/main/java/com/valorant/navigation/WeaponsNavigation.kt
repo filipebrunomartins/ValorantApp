@@ -3,9 +3,8 @@ package com.valorant.navigation
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import com.valorant.common.utils.NavRoute.weaponsScreenRoute
 import com.valorant.weapons.WeaponsScreenRoute
-
-const val weaponsScreenRoute = "weaponsScreenRoute"
 
 fun NavController.navigateToWeaponsScreen() {
     navigate(weaponsScreenRoute)

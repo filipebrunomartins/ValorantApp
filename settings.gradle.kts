@@ -28,9 +28,6 @@ include(":common")
 include(":core:designsystem")
 include(":core:ui")
 
-include(":features:repolist")
-include(":features:profile")
-
 include(":features:agents")
 include(":features:maps")
 include(":features:weapons")

@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.valorant.app.android.application)
     alias(libs.plugins.valorant.app.android.hilt)
     alias(libs.plugins.valorant.app.android.application.compose)
+    alias(libs.plugins.valorant.app.android.jacoco)
 }
 
 android {
@@ -51,8 +52,6 @@ dependencies {
     implementation(projects.core.ui)
     implementation(projects.core.designsystem)
 
-    implementation(projects.features.repolist)
-    implementation(projects.features.profile)
     implementation(projects.features.agents)
     implementation(projects.features.maps)
     implementation(projects.features.weapons)
